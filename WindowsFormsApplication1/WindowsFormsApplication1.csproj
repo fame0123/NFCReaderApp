@@ -90,6 +90,7 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\TimeStampConfiguration.cs" />
     <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>

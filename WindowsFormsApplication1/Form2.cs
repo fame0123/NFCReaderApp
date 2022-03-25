@@ -59,7 +59,26 @@ namespace WindowsFormsApplication1
             //MessageBox.Show(MainForm.global_var1);
 
             string[] str = MainForm.global_var1.Split('&');
-            if (str.Length != 18) { return; }
+
+            if (str.Length != 18)
+            {
+
+                if (str.Length == 4)
+                {
+                    txt_boatid.Text = str[0];
+
+                    var latLon = str[1].Split(' ');
+
+                    txt_lat.Text = latLon[0];
+                    txt_lng.Text = latLon[1];
+
+                    txt_date.Text = str[2].TimeStampConverter(); //TimeStampConfiguration  TimeStampConverter
+                    txt_fishid.Text = str[3];
+                }
+
+
+                return; 
+            }
             txt_boatid.Text = str[0];
             txt_fishid.Text = str[1];
             string[] loc = str[2].Split(' ');
