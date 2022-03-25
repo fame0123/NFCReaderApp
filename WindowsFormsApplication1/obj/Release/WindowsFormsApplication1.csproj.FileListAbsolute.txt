@@ -1,0 +1,66 @@
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\Bunifu_UI_v1.52.dll
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\Newtonsoft.Json.dll
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\QRCoder.dll
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\QRCoder.Unity.dll
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\UnityEngine.dll
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\Newtonsoft.Json.xml
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\bin\Release\UnityEngine.xml
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Account.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form2.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.form_login.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.History.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.MainForm.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.cache
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.CopyComplete
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\carl\Documents\Visual Studio 2015\Projects\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csprojAssemblyReference.cache
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\Bunifu_UI_v1.52.dll
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\Newtonsoft.Json.dll
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\QRCoder.dll
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\QRCoder.Unity.dll
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\UnityEngine.dll
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\Newtonsoft.Json.xml
+D:\project\NFC_Layout\WindowsFormsApplication1\bin\Release\UnityEngine.xml
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Account.resources
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form2.resources
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.form_login.resources
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.History.resources
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.MainForm.resources
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.cache
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.CopyComplete
+D:\project\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.AssemblyReference.cache
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\Bunifu_UI_v1.52.dll
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\Newtonsoft.Json.dll
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\QRCoder.dll
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\QRCoder.Unity.dll
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\UnityEngine.dll
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\Newtonsoft.Json.xml
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\bin\Release\UnityEngine.xml
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Account.resources
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form2.resources
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.form_login.resources
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.History.resources
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.MainForm.resources
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.cache
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.CopyComplete
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+D:\project\PT Nutrindo\NFC_Layout\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.AssemblyReference.cache
