@@ -123,6 +123,25 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>45</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_dashboad_gridview.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAALUAAAAtCAYAAADoZiqHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKmSURBVHhe7d29a1NRGMdx/wKtbyhYHBJTS4PGvhhba31Z
+        VFAUUWwTawuatrZGixRBqAERqlI61MmhoKWDSnVxKw4dXARdOgmCDgqCOPgvPPZ3g9GQY8d6z+E7fKDD
+        SaZvLuee5j5Z8/P7vAEhIWoEh6gRHKJGcIgawSFqBGfFqH98fWaLT+/YVN85K504bqPZTis0tgCrTu2p
+        wfs9p+31bMm+fZpzNiv/jPrtqwd2rW2/XUm32YUtOy2/qcFy63dY99oEsOrUnhpUi0PLkRdbOmxhZtzZ
+        bk3U+gRMF7ptJJO1HiJGTPXUJaML7t0zJ+3LhydVDVdFraDHug5Zf33a+UZA3OQ3N9jYgYP2eWnGHbWu
+        0AQN32hbov12TdTaQ2vL4XoREHcDqWZ7fq/4J2qdcuimkD00vLUuacXWDvv47lE5ah2R6I7SuRjwRP/2
+        tM3eHipHrbM/HZW4FgK+yG9M2c3DR8pR3+jsstyGlHMh4I3lLchgurUc9bDOpOuS7oWAR/Tfxyhq/eFa
+        APiGqBEcokZwiBrBIWoEh6gRHKJGcIgawSFqBIeoERyiRnCIGsGpRK1vNukbTq5FgE8qUWumAuMPEIJK
+        1HrMXE/luhYBvtAzAXo2IIr6xeSoXU5knAsBX/RubbSHg7ly1JqZcLWlnX01vDa8a6+9eTlRjlrmSkNW
+        SO1xLgbirq++ySZ7z1bP/dCYhPFjR6PBIK4XAXGl0R7Xs52VoZGVqEUzEzT/g4dw4QsFXWxut/cLU5WO
+        q6KWpcXpaJ7epcRu55sAcXFxW1N0hf47aKmJWrQVeXxrwEYy+6I7SiY3IS409UAzajTxdOL8KeecamfU
+        v+kToCMSXd51qA38bxrnoR8B0I8BuJqVFaMGfETUCA5RIzhEjeAQNQIzb78AHLo2amwEe14AAAAASUVO
+        RK5CYII=
+</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -180,25 +199,6 @@
   <metadata name="Column19.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_dashboad_gridview.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAALUAAAAtCAYAAADoZiqHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKmSURBVHhe7d29a1NRGMdx/wKtbyhYHBJTS4PGvhhba31Z
-        VFAUUWwTawuatrZGixRBqAERqlI61MmhoKWDSnVxKw4dXARdOgmCDgqCOPgvPPZ3g9GQY8d6z+E7fKDD
-        SaZvLuee5j5Z8/P7vAEhIWoEh6gRHKJGcIgawSFqBGfFqH98fWaLT+/YVN85K504bqPZTis0tgCrTu2p
-        wfs9p+31bMm+fZpzNiv/jPrtqwd2rW2/XUm32YUtOy2/qcFy63dY99oEsOrUnhpUi0PLkRdbOmxhZtzZ
-        bk3U+gRMF7ptJJO1HiJGTPXUJaML7t0zJ+3LhydVDVdFraDHug5Zf33a+UZA3OQ3N9jYgYP2eWnGHbWu
-        0AQN32hbov12TdTaQ2vL4XoREHcDqWZ7fq/4J2qdcuimkD00vLUuacXWDvv47lE5ah2R6I7SuRjwRP/2
-        tM3eHipHrbM/HZW4FgK+yG9M2c3DR8pR3+jsstyGlHMh4I3lLchgurUc9bDOpOuS7oWAR/Tfxyhq/eFa
-        APiGqBEcokZwiBrBIWoEh6gRHKJGcIgawSFqBIeoERyiRnCIGsGpRK1vNukbTq5FgE8qUWumAuMPEIJK
-        1HrMXE/luhYBvtAzAXo2IIr6xeSoXU5knAsBX/RubbSHg7ly1JqZcLWlnX01vDa8a6+9eTlRjlrmSkNW
-        SO1xLgbirq++ySZ7z1bP/dCYhPFjR6PBIK4XAXGl0R7Xs52VoZGVqEUzEzT/g4dw4QsFXWxut/cLU5WO
-        q6KWpcXpaJ7epcRu55sAcXFxW1N0hf47aKmJWrQVeXxrwEYy+6I7SiY3IS409UAzajTxdOL8KeecamfU
-        v+kToCMSXd51qA38bxrnoR8B0I8BuJqVFaMGfETUCA5RIzhEjeAQNQIzb78AHLo2amwEe14AAAAASUVO
-        RK5CYII=
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAlj8AAAEAIAC8mAAAFgAAACgAAACWAAAAfgAAAAEAIAAAAAAAqJMAAMMOAADDDgAAAAAAAAAA

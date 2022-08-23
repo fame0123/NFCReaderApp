@@ -74,6 +74,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.txt_enumerator = new System.Windows.Forms.TextBox();
             this.chkBox_rememberEnumerator = new System.Windows.Forms.CheckBox();
+            this.chkBox_saveData = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -85,6 +86,7 @@
             this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Boat ID :";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -95,6 +97,7 @@
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Catch ID :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -105,6 +108,7 @@
             this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Latitude :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -115,6 +119,7 @@
             this.label4.Size = new System.Drawing.Size(84, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Longitude :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -125,6 +130,7 @@
             this.label5.Size = new System.Drawing.Size(102, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Date (Y-M-D):";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txt_boatid
             // 
@@ -136,6 +142,7 @@
             this.txt_boatid.TabIndex = 1;
             this.txt_boatid.TabStop = false;
             this.txt_boatid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_boatid.TextChanged += new System.EventHandler(this.txt_boatid_TextChanged);
             // 
             // txt_fishid
             // 
@@ -147,6 +154,7 @@
             this.txt_fishid.TabIndex = 2;
             this.txt_fishid.TabStop = false;
             this.txt_fishid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_fishid.TextChanged += new System.EventHandler(this.txt_fishid_TextChanged);
             // 
             // txt_lat
             // 
@@ -158,6 +166,7 @@
             this.txt_lat.TabIndex = 3;
             this.txt_lat.TabStop = false;
             this.txt_lat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_lat.TextChanged += new System.EventHandler(this.txt_lat_TextChanged);
             // 
             // txt_lng
             // 
@@ -169,6 +178,7 @@
             this.txt_lng.TabIndex = 4;
             this.txt_lng.TabStop = false;
             this.txt_lng.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_lng.TextChanged += new System.EventHandler(this.txt_lng_TextChanged);
             // 
             // txt_date
             // 
@@ -181,6 +191,7 @@
             this.txt_date.TabStop = false;
             this.txt_date.Tag = "";
             this.txt_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_date.TextChanged += new System.EventHandler(this.txt_date_TextChanged);
             this.txt_date.MouseHover += new System.EventHandler(this.txt_date_MouseHover);
             // 
             // label6
@@ -192,6 +203,7 @@
             this.label6.Size = new System.Drawing.Size(81, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Weight KL:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -202,6 +214,7 @@
             this.label7.Size = new System.Drawing.Size(103, 18);
             this.label7.TabIndex = 0;
             this.label7.Text = "Fish Validity:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txt_weit
             // 
@@ -212,6 +225,7 @@
             this.txt_weit.Size = new System.Drawing.Size(148, 30);
             this.txt_weit.TabIndex = 5;
             this.txt_weit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_weit.TextChanged += new System.EventHandler(this.txt_weit_TextChanged);
             this.txt_weit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_weit_KeyPress);
             // 
             // label8
@@ -225,6 +239,7 @@
             this.label8.Size = new System.Drawing.Size(139, 25);
             this.label8.TabIndex = 8;
             this.label8.Text = "Fish Record";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txt_boatCap
             // 
@@ -237,6 +252,7 @@
             this.txt_boatCap.TabIndex = 9;
             this.txt_boatCap.Text = "None";
             this.txt_boatCap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_boatCap.TextChanged += new System.EventHandler(this.txt_boatCap_TextChanged);
             // 
             // txt_boatName
             // 
@@ -248,6 +264,7 @@
             this.txt_boatName.TabIndex = 10;
             this.txt_boatName.Text = "None";
             this.txt_boatName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_boatName.TextChanged += new System.EventHandler(this.txt_boatName_TextChanged);
             // 
             // txt_LicId
             // 
@@ -259,6 +276,7 @@
             this.txt_LicId.TabIndex = 11;
             this.txt_LicId.Text = "None";
             this.txt_LicId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_LicId.TextChanged += new System.EventHandler(this.txt_LicId_TextChanged);
             // 
             // label9
             // 
@@ -269,6 +287,7 @@
             this.label9.Size = new System.Drawing.Size(110, 16);
             this.label9.TabIndex = 0;
             this.label9.Text = "Captain Name:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -279,6 +298,7 @@
             this.label10.Size = new System.Drawing.Size(89, 16);
             this.label10.TabIndex = 0;
             this.label10.Text = "Boat Name:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -289,6 +309,7 @@
             this.label11.Size = new System.Drawing.Size(85, 16);
             this.label11.TabIndex = 0;
             this.label11.Text = "License ID:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txt_locattion
             // 
@@ -300,6 +321,7 @@
             this.txt_locattion.TabIndex = 12;
             this.txt_locattion.Text = "None";
             this.txt_locattion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_locattion.TextChanged += new System.EventHandler(this.txt_locattion_TextChanged);
             // 
             // label12
             // 
@@ -310,6 +332,7 @@
             this.label12.Size = new System.Drawing.Size(71, 16);
             this.label12.TabIndex = 0;
             this.label12.Text = "Location:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // txt_size
             // 
@@ -319,6 +342,7 @@
             this.txt_size.Name = "txt_size";
             this.txt_size.Size = new System.Drawing.Size(147, 21);
             this.txt_size.TabIndex = 7;
+            this.txt_size.SelectedIndexChanged += new System.EventHandler(this.txt_size_SelectedIndexChanged);
             // 
             // cbox_species
             // 
@@ -336,6 +360,7 @@
             this.cbox_species.Name = "cbox_species";
             this.cbox_species.Size = new System.Drawing.Size(147, 21);
             this.cbox_species.TabIndex = 6;
+            this.cbox_species.SelectedIndexChanged += new System.EventHandler(this.cbox_species_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -346,6 +371,7 @@
             this.label13.Size = new System.Drawing.Size(78, 20);
             this.label13.TabIndex = 0;
             this.label13.Text = "Species:";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // cbox_idnum
             // 
@@ -354,6 +380,7 @@
             this.cbox_idnum.Name = "cbox_idnum";
             this.cbox_idnum.Size = new System.Drawing.Size(147, 21);
             this.cbox_idnum.TabIndex = 8;
+            this.cbox_idnum.SelectedIndexChanged += new System.EventHandler(this.cbox_idnum_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -364,6 +391,7 @@
             this.label14.Size = new System.Drawing.Size(56, 18);
             this.label14.TabIndex = 0;
             this.label14.Text = "ID No:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // bunifuElipse1
             // 
@@ -462,6 +490,7 @@
             this.txt_departTime.TabStop = false;
             this.txt_departTime.Tag = "";
             this.txt_departTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_departTime.TextChanged += new System.EventHandler(this.txt_departTime_TextChanged);
             // 
             // txt_arrivTime
             // 
@@ -474,6 +503,7 @@
             this.txt_arrivTime.TabStop = false;
             this.txt_arrivTime.Tag = "";
             this.txt_arrivTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_arrivTime.TextChanged += new System.EventHandler(this.txt_arrivTime_TextChanged);
             // 
             // label15
             // 
@@ -484,6 +514,7 @@
             this.label15.Size = new System.Drawing.Size(120, 16);
             this.label15.TabIndex = 18;
             this.label15.Text = "Departure Time:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label16
             // 
@@ -494,6 +525,7 @@
             this.label16.Size = new System.Drawing.Size(96, 16);
             this.label16.TabIndex = 19;
             this.label16.Text = "Arrival Time:";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label17
             // 
@@ -504,6 +536,7 @@
             this.label17.Size = new System.Drawing.Size(70, 16);
             this.label17.TabIndex = 21;
             this.label17.Text = "Supplier:";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // txt_supplier
             // 
@@ -516,6 +549,7 @@
             this.txt_supplier.TabStop = false;
             this.txt_supplier.Tag = "";
             this.txt_supplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_supplier.TextChanged += new System.EventHandler(this.txt_supplier_TextChanged);
             // 
             // label18
             // 
@@ -526,6 +560,7 @@
             this.label18.Size = new System.Drawing.Size(59, 16);
             this.label18.TabIndex = 23;
             this.label18.Text = "Tag ID:";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // txt_tagId
             // 
@@ -538,6 +573,7 @@
             this.txt_tagId.TabStop = false;
             this.txt_tagId.Tag = "";
             this.txt_tagId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_tagId.TextChanged += new System.EventHandler(this.txt_tagId_TextChanged);
             // 
             // label19
             // 
@@ -548,6 +584,7 @@
             this.label19.Size = new System.Drawing.Size(105, 16);
             this.label19.TabIndex = 25;
             this.label19.Text = "Classification:";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // txt_classification
             // 
@@ -560,6 +597,7 @@
             this.txt_classification.TabStop = false;
             this.txt_classification.Tag = "";
             this.txt_classification.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_classification.TextChanged += new System.EventHandler(this.txt_classification_TextChanged);
             // 
             // label20
             // 
@@ -570,6 +608,7 @@
             this.label20.Size = new System.Drawing.Size(149, 16);
             this.label20.TabIndex = 27;
             this.label20.Text = "Name of Enumerator";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // txt_enumerator
             // 
@@ -582,6 +621,7 @@
             this.txt_enumerator.TabStop = false;
             this.txt_enumerator.Tag = "";
             this.txt_enumerator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_enumerator.TextChanged += new System.EventHandler(this.txt_enumerator_TextChanged);
             // 
             // chkBox_rememberEnumerator
             // 
@@ -593,6 +633,19 @@
             this.chkBox_rememberEnumerator.TabIndex = 20;
             this.chkBox_rememberEnumerator.Text = "Remember this Enumerator?";
             this.chkBox_rememberEnumerator.UseVisualStyleBackColor = true;
+            this.chkBox_rememberEnumerator.CheckedChanged += new System.EventHandler(this.chkBox_rememberEnumerator_CheckedChanged);
+            // 
+            // chkBox_saveData
+            // 
+            this.chkBox_saveData.AutoSize = true;
+            this.chkBox_saveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBox_saveData.Location = new System.Drawing.Point(728, 16);
+            this.chkBox_saveData.Name = "chkBox_saveData";
+            this.chkBox_saveData.Size = new System.Drawing.Size(89, 19);
+            this.chkBox_saveData.TabIndex = 28;
+            this.chkBox_saveData.Text = "Save data";
+            this.chkBox_saveData.UseVisualStyleBackColor = true;
+            this.chkBox_saveData.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Form2
             // 
@@ -600,6 +653,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(833, 308);
+            this.Controls.Add(this.chkBox_saveData);
             this.Controls.Add(this.chkBox_rememberEnumerator);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txt_enumerator);
@@ -699,5 +753,6 @@
         private System.Windows.Forms.CheckBox chkBox_rememberEnumerator;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txt_enumerator;
+        private System.Windows.Forms.CheckBox chkBox_saveData;
     }
 }

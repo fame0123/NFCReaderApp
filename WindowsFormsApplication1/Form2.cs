@@ -13,9 +13,9 @@ namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
-
         public static string global_var2 = "";
         public static string global_var3 = "";
+        
 
         public Form2()
         {
@@ -24,6 +24,9 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            chkBox_saveData.Checked = MainForm.chkbox_saveDataIsChecked;
+
+            #region Clear textbox
             //txt_boatid.Clear();
             //txt_arrivTime.Clear();
             //txt_boatCap.Clear();
@@ -38,7 +41,7 @@ namespace WindowsFormsApplication1
             //txt_supplier.Clear();
             //txt_tagId.Clear();
             //txt_weit.Clear();
-
+            #endregion
 
 
             txt_date.Text = DateTime.Now.ToString("yyyy'-'MM'-'dd");
@@ -70,15 +73,30 @@ namespace WindowsFormsApplication1
                     var latLon = str[1].Split(' ');
 
                     txt_lat.Text = latLon[0];
-                    txt_lng.Text = latLon[1];
+                    txt_lng.Text = latLon[0];
 
                     txt_date.Text = str[2].TimeStampConverter(); //TimeStampConfiguration  TimeStampConverter
                     txt_fishid.Text = str[3];
                 }
 
+                if (str.Length == 8)
+                {
+                    txt_boatid.Text = str[0];
+                    txt_fishid.Text = str[1];
 
+                    var latLon = str[2].Split(' ');
+                    txt_lat.Text = latLon[0];
+                    txt_lng.Text = latLon[1];
+
+                    txt_date.Text = str[3].TimeStampConverter(); //TimeStampConfiguration  TimeStampConverter
+                    txt_boatCap.Text = str[4];
+                    txt_boatName.Text = str[5];
+                    txt_LicId.Text = str[6];
+                    txt_locattion.Text = str[7];
+                }
                 return; 
             }
+
             txt_boatid.Text = str[0];
             txt_fishid.Text = str[1];
             string[] loc = str[2].Split(' ');
@@ -136,45 +154,47 @@ namespace WindowsFormsApplication1
         {
             if (txt_size.Text.Trim() != "" && txt_weit.Text.Trim() != "" && cbox_idnum.Text.Trim() != "")
             {
-                string boatid = txt_boatid.Text;
-                string fishid = txt_fishid.Text;
-                string lat = txt_lat.Text;
-                string lng = txt_lng.Text;
-                string date = txt_date.Text;
-                string weit = txt_weit.Text;
-                string cert = txt_size.Text;
-                string cap = txt_boatCap.Text;
-                string botname = txt_boatName.Text;
-                string license = txt_LicId.Text;
-                string locationz = txt_locattion.Text;
-                string species = cbox_species.Text;
-                string idno = cbox_idnum.Text;
-                string departureTime = txt_departTime.Text;
-                string arrivalTime = txt_arrivTime.Text;
-                string supplier = txt_supplier.Text;
-                string tagId = txt_tagId.Text;
-                string classification = txt_classification.Text;
-                string enumeratorName = txt_enumerator.Text;
+                var fishRecord = new FishRecord();
 
-                global_var2 = boatid + "&" + 
-                              fishid + "&" + 
-                              lat + "&" +
-                              lng + "&" +
-                              date + "&" +
-                              weit + "&" +
-                              species + "&" +
-                              cert + "&" +
-                              cap + "&" +
-                              botname + "&" +
-                              license + "&" +
-                              locationz + "&" +
-                              idno + "&" + 
-                              departureTime + "&" + 
-                              arrivalTime + "&" +
-                              supplier + "&" +
-                              tagId + "&" +
-                              classification + "&" +
-                              enumeratorName; ;
+                fishRecord.BoatId = txt_boatid.Text;
+                fishRecord.CatchId = txt_fishid.Text;
+                fishRecord.Latitude = txt_lat.Text;
+                fishRecord.Longitude = txt_lng.Text;
+                fishRecord.TimeStamp = txt_date.Text;
+                fishRecord.Weight = txt_weit.Text;
+                fishRecord.Certified = txt_size.Text;
+                fishRecord.Captain = txt_boatCap.Text;
+                fishRecord.BoatName = txt_boatName.Text;
+                fishRecord.LicenseId = txt_LicId.Text;
+                fishRecord.Location = txt_locattion.Text;
+                fishRecord.Species = cbox_species.Text;
+                fishRecord.IdNo = cbox_idnum.Text;
+                fishRecord.DepartureTime = txt_departTime.Text;
+                fishRecord.ArrivalTime = txt_arrivTime.Text;
+                fishRecord.Supplier = txt_supplier.Text;
+                fishRecord.TagId = txt_tagId.Text;
+                fishRecord.Classification = txt_classification.Text;
+                fishRecord.EnumeratorName = txt_enumerator.Text;
+
+                global_var2 = fishRecord.BoatId + "&" +
+                              fishRecord.CatchId + "&" +
+                              fishRecord.Latitude + "&" +
+                              fishRecord.Longitude + "&" +
+                              fishRecord.TimeStamp + "&" +
+                              fishRecord.Weight + "&" +
+                              fishRecord.Species + "&" +
+                              fishRecord.Certified + "&" +
+                              fishRecord.Captain + "&" +
+                              fishRecord.BoatName + "&" +
+                              fishRecord.LicenseId + "&" +
+                              fishRecord.Location + "&" +
+                              fishRecord.IdNo + "&" +
+                              fishRecord.DepartureTime + "&" +
+                              fishRecord.ArrivalTime + "&" +
+                              fishRecord.Supplier + "&" +
+                              fishRecord.TagId + "&" +
+                              fishRecord.Classification + "&" +
+                              fishRecord.EnumeratorName;
 
                 if (global_var3 == "edit") //
                 {
@@ -206,8 +226,15 @@ namespace WindowsFormsApplication1
 
                 if (chkBox_rememberEnumerator.Checked)
                 {
-                    File.WriteAllText("EnumeratorName.txt", enumeratorName);
+                    File.WriteAllText("EnumeratorName.txt", fishRecord.EnumeratorName);
                 }
+
+                if (chkBox_saveData.Checked)
+                {
+                    fishRecord.ExportToJsonFile("Discrete");
+                    MainForm.chkbox_saveDataIsChecked = true;
+                }
+                else { MainForm.chkbox_saveDataIsChecked = false; }
 
                 this.Close();
             }
@@ -241,6 +268,7 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
+        #region Not Use Method
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
         {
 
@@ -250,5 +278,211 @@ namespace WindowsFormsApplication1
         {
             
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_boatid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_fishid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_lat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_lng_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_date_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_weit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_boatCap_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_boatName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_LicId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_locattion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_size_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbox_species_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbox_idnum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_departTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_arrivTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_supplier_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_tagId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_classification_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_enumerator_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkBox_rememberEnumerator_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

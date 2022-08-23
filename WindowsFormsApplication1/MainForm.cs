@@ -25,6 +25,8 @@ namespace WindowsFormsApplication1
 
         public static string recordFileName = "";
 
+        public static bool chkbox_saveDataIsChecked = false;
+
         SerialPort sp;
         string msg = "";
         public MainForm()
@@ -100,7 +102,7 @@ namespace WindowsFormsApplication1
                     string[] str1 = value.Split(new string[] { "en" }, StringSplitOptions.None);
 
                     //richTextBox1.AppendText(str1[1]);
-                    if (i < 4)
+                    if (i < 8)
                     {
                         data_holder = data_holder + spliter + str1[1];
                     }
@@ -110,7 +112,7 @@ namespace WindowsFormsApplication1
             }
             try
             {
-                if (i == 4)
+                if (i == 8)
                 {
                     i = 0;
                     global_var1 = data_holder;
@@ -312,13 +314,10 @@ namespace WindowsFormsApplication1
 
                     if (valz == "0")
                     {
-                        //MessageBox.Show(data_holder);
                         string[] data_holder_split = data_holder.Split('%');
 
                         addrow = dataGridView1.Rows.Add();
-                        //MessageBox.Show(addrow.ToString());
-                        //for (int j = 0; j < data_holder_split.Length; j++)
-                        //{
+                         
                         dataGridView1.Rows[addrow].Cells[0].Value = data_holder_split[0];
                         dataGridView1.Rows[addrow].Cells[1].Value = data_holder_split[1];
                         dataGridView1.Rows[addrow].Cells[2].Value = data_holder_split[2];
@@ -338,6 +337,9 @@ namespace WindowsFormsApplication1
                         dataGridView1.Rows[addrow].Cells[16].Value = data_holder_split[16];
                         dataGridView1.Rows[addrow].Cells[17].Value = data_holder_split[17];
                         dataGridView1.Rows[addrow].Cells[18].Value = data_holder_split[18];
+                        //dataGridView1.Rows[addrow].Cells[19].Value = data_holder_split[19];
+                        //dataGridView1.Rows[addrow].Cells[20].Value = data_holder_split[20];
+                        //dataGridView1.Rows[addrow].Cells[21].Value = data_holder_split[21];
                         //}
                     }
                     data_holder = "";
@@ -352,8 +354,9 @@ namespace WindowsFormsApplication1
         {
             
         }
-        // ======================================================================================================== > FUNCTION 
-        public string ValidateData(string val)  // Check if data is in datagridview
+        
+        #region Check if data is in datagridview
+        public string ValidateData(string val) 
         {
             int cnt = 0;
             string catchID;
@@ -374,7 +377,9 @@ namespace WindowsFormsApplication1
 
             return "0";
         }
+        #endregion
 
+        #region Search ComPort
         private void SearchComPort() // Search Com Port
         {
            
@@ -409,8 +414,47 @@ namespace WindowsFormsApplication1
             }
 
         }
-        //===============================================================================================^^^^^
+        #endregion
 
+        #region Start Scan
+        private void btn_scan_Click_1(object sender, EventArgs e) // Button To Start Scan/ Read Serial port
+        {
+            try
+            {
+                sp = new SerialPort();
+
+                sp.PortName = comboBox1.selectedValue;
+                sp.BaudRate = 9600;
+                sp.WriteTimeout = 5300;
+                sp.ReadTimeout = 5300;
+                sp.DtrEnable = true;
+                sp.RtsEnable = true;
+                sp.Open();
+
+                //----------------------------> this will start the loop for incomming Serial Data
+                readThread = new Thread(Read);
+                readThread.Start();
+                //-----------------------------<
+                RchTextBox_colorChange("\n\nReady To Scan NFC Card.!\n\n", "green");
+
+
+                //btn_scan.BackColor = Green;
+                btn_scan.Visible = false;
+                btn_stop.Visible = true;
+                btn_stop.Enabled = true;
+                //btn_stop.BackColor = Color.DarkSlateGray;
+                btn_upload.Enabled = true;
+                textBox1.BackColor = Green;
+                btn_loadPort.Visible = false;  // Reload Comport
+                //btn_loadPort.BackColor = Color.Black;
+                comboBox1.Enabled = false; // COM Port List
+
+            }
+            catch { MessageBox.Show("Com Port Not Supported...."); }
+        }
+        #endregion
+
+        #region Stop Scan
         private void btn_stop_Click(object sender, EventArgs e)
         {
             try
@@ -432,7 +476,9 @@ namespace WindowsFormsApplication1
             }
             catch { }
         }
+        #endregion
 
+        #region Save Record
         private void btn_saveRecord_Click(object sender, EventArgs e) // ----> SAve Record
         {
             DateTime today = DateTime.Today;
@@ -467,7 +513,7 @@ namespace WindowsFormsApplication1
                     string notepad_append = "{\"BoatId\":\"" + BoatID + "\"," +
                                             "\"CatchId\":\"" + FishID + "\"," +
                                             "\"Latitude\":\"" + lat + "\"," +
-                                            "\"Longhitud\":\"" + lng + "\"," +
+                                            "\"Longitude\":\"" + lng + "\"," +
                                             "\"TimeStamp\":\"" + Petsa + "\"," +
                                             "\"Weight\":\"" + Weight + "\"," +
                                             "\"Species\":\"" + species + "\"," +
@@ -501,7 +547,9 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("System Encountered Error. Make Sure That Record View List is Not Empty. Please Try Again...!");
             }
         }
+        #endregion
 
+        #region Edit
         private void btn_edit_Click(object sender, EventArgs e) // ---------------> Edit Button
         {
             try
@@ -586,7 +634,9 @@ namespace WindowsFormsApplication1
             }
             catch { MessageBox.Show("Please Select a Data."); }
         }
+        #endregion
 
+        #region Delete
         private void btn_delete_Click(object sender, EventArgs e) // ---------- Delete Button
         {
             int id = 0;
@@ -606,6 +656,7 @@ namespace WindowsFormsApplication1
             }
             catch { MessageBox.Show("Please Select a Data."); }
         }
+        #endregion
 
         private void bunifuFlatButton7_Click(object sender, EventArgs e) // Account Button
         {
@@ -613,6 +664,7 @@ namespace WindowsFormsApplication1
             ac.ShowDialog();
         }
 
+        #region Upload Data to Cloud
         private void btn_upload_Click(object sender, EventArgs e) // Upload data to cloud
         {
             try
@@ -645,38 +697,42 @@ namespace WindowsFormsApplication1
                         string tagId = dataGridView1.Rows[cnt].Cells[16].Value.ToString();
                         string classification = dataGridView1.Rows[cnt].Cells[17].Value.ToString();
                         string enumeratorName = dataGridView1.Rows[cnt].Cells[18].Value.ToString();
+                        string processor = dataGridView1.Rows[cnt].Cells[18].Value.ToString();
+                        string fairTradeTagId = dataGridView1.Rows[cnt].Cells[18].Value.ToString();
+                        string Certified = dataGridView1.Rows[cnt].Cells[18].Value.ToString();
 
-                        string notepad_append = "{\"BoatId\":\"" + BoatID + "\"," +
-                                                "\"CatchId\":\"" + FishID + "\"," +
-                                                "\"Latitude\":\"" + lat + "\"," +
-                                                "\"Longhitud\":\"" + lng + "\"," +
-                                                "\"TimeStamp\":\"" + Petsa + "\"," +
-                                                "\"Weight\":\"" + Weight + "\"," +
-                                                "\"Species\":\"" + species + "\"," +
-                                                "\"Certified\":\"" + cert + "\"," +
-                                                "\"Captain\":\"" + cap + "\"," +
-                                                "\"BoatName\":\"" + botname + "\"," +
-                                                "\"LicenseId\":\"" + license + "\"," +
-                                                "\"Location\":\"" + locate + "\"," +
-                                                "\"IdNo\":\"" + idno + "\"" +
-                                                "\"DepartureTime\":\"" + departureTime + "\"" +
-                                                "\"ArrivalTime\":\"" + arrivalTime + "\"" +
-                                                "\"Supplier\":\"" + supplier + "\"" +
-                                                "\"TagId\":\"" + tagId + "\"" +
-                                                "\"Classification\":\"" + classification + "\"" +
-                                                "\"EnumeratorName\":\"" + enumeratorName + "\"" +
-                                                "}+";
+                        var fishRecordList = new List<FishRecordUpload>();
+                        //string notepad_append = "{\"BoatId\":\"" + BoatID + "\"," +
+                        //                        "\"CatchId\":\"" + FishID + "\"," +
+                        //                        "\"Latitude\":\"" + lat + "\"," +
+                        //                        "\"Longhitud\":\"" + lng + "\"," +
+                        //                        "\"TimeStamp\":\"" + Petsa + "\"," +
+                        //                        "\"Weight\":\"" + Weight + "\"," +
+                        //                        "\"Species\":\"" + species + "\"," +
+                        //                        "\"Certified\":\"" + cert + "\"," +
+                        //                        "\"Captain\":\"" + cap + "\"," +
+                        //                        "\"BoatName\":\"" + botname + "\"," +
+                        //                        "\"LicenseId\":\"" + license + "\"," +
+                        //                        "\"Location\":\"" + locate + "\"," +
+                        //                        "\"IdNo\":\"" + idno + "\"" +
+                        //                        "\"DepartureTime\":\"" + departureTime + "\"" +
+                        //                        "\"ArrivalTime\":\"" + arrivalTime + "\"" +
+                        //                        "\"Supplier\":\"" + supplier + "\"" +
+                        //                        "\"TagId\":\"" + tagId + "\"" +
+                        //                        "\"Classification\":\"" + classification + "\"" +
+                        //                        "\"EnumeratorName\":\"" + enumeratorName + "\"" +
+                        //                        "}+";
 
-                        StreamWriter log = File.AppendText("jam.txt");
-                        log.WriteLine(notepad_append);
-                        log.Close();
+                        //StreamWriter log = File.AppendText("jam.txt");
+                        //log.WriteLine(notepad_append);
+                        //log.Close();
 
 
-                        DateTime today = DateTime.Today;
-                        //string data_Record = "{\"boatid\":" + BoatID + ",\"fishid\":" + FishID + ",\"lat\":" + lng + ",\"lon\":" + lng + ",\"timestamp\":" + Petsa + ",\"weight\":" + Weight + ",\"size\":" + Size + "}";
-                        StreamWriter log1 = File.AppendText("data_Record/" + today.ToString("dd-MM-yyyy") + ".txt");
-                        log1.WriteLine(notepad_append);
-                        log1.Close();
+                        //DateTime today = DateTime.Today;
+                        ////string data_Record = "{\"boatid\":" + BoatID + ",\"fishid\":" + FishID + ",\"lat\":" + lng + ",\"lon\":" + lng + ",\"timestamp\":" + Petsa + ",\"weight\":" + Weight + ",\"size\":" + Size + "}";
+                        //StreamWriter log1 = File.AppendText("data_Record/" + today.ToString("dd-MM-yyyy") + ".txt");
+                        //log1.WriteLine(notepad_append);
+                        //log1.Close();
 
                         cnt++;
                         //richTextBox1.AppendText(i.ToString());
@@ -696,6 +752,8 @@ namespace WindowsFormsApplication1
             }
         }
 
+        #endregion
+
         private void btn_clear_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -706,50 +764,12 @@ namespace WindowsFormsApplication1
             this.WindowState = FormWindowState.Minimized;
         }
 
-        
-
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             richTextBox1.SelectionStart = richTextBox1.Text.Length;
 
             richTextBox1.ScrollToCaret();
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-        }
-
-        private void btn_scan_Click_1(object sender, EventArgs e) // Button To Start Scan/ Read Serial port
-        {
-            try
-            {
-                sp = new SerialPort();
-
-                sp.PortName = comboBox1.selectedValue;
-                sp.BaudRate = 9600;
-                sp.WriteTimeout = 5300;
-                sp.ReadTimeout = 5300;
-                sp.DtrEnable = true;
-                sp.RtsEnable = true;
-                sp.Open();
-
-                //----------------------------> this will start the loop for incomming Serial Data
-                readThread = new Thread(Read);
-                readThread.Start();  
-                //-----------------------------<
-                RchTextBox_colorChange("\n\nReady To Scan NFC Card.!\n\n", "green");
-
-
-                //btn_scan.BackColor = Green;
-                btn_scan.Visible = false;
-                btn_stop.Visible = true;
-                btn_stop.Enabled = true;
-                //btn_stop.BackColor = Color.DarkSlateGray;
-                btn_upload.Enabled = true;
-                textBox1.BackColor = Green;
-                btn_loadPort.Visible = false;  // Reload Comport
-                //btn_loadPort.BackColor = Color.Black;
-                comboBox1.Enabled = false; // COM Port List
-
-            }
-            catch { MessageBox.Show("Com Port Not Supported...."); }
         }
 
         private void btn_dashboad_gridview_Click(object sender, EventArgs e) // Dashboard Button Show/Hide
@@ -786,6 +806,7 @@ namespace WindowsFormsApplication1
             SearchComPort(); // Reload Comport
         }
 
+        #region Manual Add Data
         private void btn_add_Click(object sender, EventArgs e) // --------------->> Add Button
         {
             global_var1 = "";
@@ -821,7 +842,9 @@ namespace WindowsFormsApplication1
             btn_upload.Enabled = true;
             
         }
+        #endregion
 
+        #region Export Data
         private void btn_export_Click(object sender, EventArgs e)
         {
             var fishContainer = new List<FishRecord>();
@@ -857,7 +880,7 @@ namespace WindowsFormsApplication1
                             BoatId = BoatID,
                             CatchId = FishID,
                             Latitude = lat,
-                            Longhitud = lng,
+                            Longitude = lng,
                             TimeStamp = Petsa,
                             Weight = Weight,
                             Species = species,
@@ -895,6 +918,7 @@ namespace WindowsFormsApplication1
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }                                                                                                  
         }
+        #endregion
 
         public void RchTextBox_colorChange(string msg, string kulay) // RichtextBox Changing Color
         {
