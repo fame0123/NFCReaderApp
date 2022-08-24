@@ -25,6 +25,10 @@ namespace WindowsFormsApplication1
 
         public static string recordFileName = "";
 
+        public static int lineNumber = 1;
+
+        public static int lineNumberEdit = 0;
+
         public static bool chkbox_saveDataIsChecked = false;
 
         SerialPort sp;
@@ -125,7 +129,9 @@ namespace WindowsFormsApplication1
                     if (valz == "0")
                     {
                         temporary_data2 = temporary_data1;
-                        
+
+                        GenerateLineNumber();
+
                         Form2 f2 = new Form2();
                         f2.ShowDialog();
                         
@@ -232,17 +238,31 @@ namespace WindowsFormsApplication1
                     dataGridView1.ClearSelection();
                     
                 }
-                //else { MessageBox.Show("NFC Card Have Less or More Than Expected Data. \n Please Try Another Card"); i = 0; }
                 
             }
             catch { MessageBox.Show("NFC Card Have Less or More Than Expected Data. \n Please  Try Another Card...!"); i = 0; }
         }
-       
+        private void GenerateLineNumber()
+        {
+            if (dataGridView1.Rows.Count != 0)
+            {
+                var storedLineNumber = lineNumber;
+                foreach (DataGridViewRow dGrv in dataGridView1.Rows)
+                {
+                    var dGrvLineNumber = Convert.ToInt32(dGrv.Cells[19].Value);
+                    if (storedLineNumber < dGrvLineNumber)
+                    {
+                        storedLineNumber = dGrvLineNumber;
+                    }
+                }
+                lineNumber = storedLineNumber + 1;
+            }
+        }
 
-        private void MainForm_Load(object sender, EventArgs e)// -========================= Main Form
+        // -========================= Main Form
+        private void MainForm_Load(object sender, EventArgs e)
         {
             SearchComPort();
-            //MessageBox.Show(dataGridView1.Rows.Count.ToString()); global_var1
             this.dataGridView1.RowHeadersVisible = false;
             webBrowser1.Navigate("https://nutrindofresfoodinternasional.business.site");
         }
@@ -252,7 +272,8 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void btn_close_Click(object sender, EventArgs e) // Button  to Close/Stop Serial Reading
+        // Button  to Close/Stop Serial Reading
+        private void btn_close_Click(object sender, EventArgs e) 
         {
             try
             {
@@ -297,7 +318,7 @@ namespace WindowsFormsApplication1
                     int x = 0;
                     string valz = "";
                     var dictionary = JsonConvert.DeserializeObject<System.Collections.IDictionary>(jsonSplit[i]);
-                    //MessageBox.Show();
+                    
                     foreach (System.Collections.DictionaryEntry entry in dictionary)
                     {
                         if (entry.Key.ToString() == "CatchId")
@@ -337,7 +358,7 @@ namespace WindowsFormsApplication1
                         dataGridView1.Rows[addrow].Cells[16].Value = data_holder_split[16];
                         dataGridView1.Rows[addrow].Cells[17].Value = data_holder_split[17];
                         dataGridView1.Rows[addrow].Cells[18].Value = data_holder_split[18];
-                        //dataGridView1.Rows[addrow].Cells[19].Value = data_holder_split[19];
+                        dataGridView1.Rows[addrow].Cells[19].Value = data_holder_split[19];
                         //dataGridView1.Rows[addrow].Cells[20].Value = data_holder_split[20];
                         //dataGridView1.Rows[addrow].Cells[21].Value = data_holder_split[21];
                         //}
@@ -509,7 +530,8 @@ namespace WindowsFormsApplication1
                     string tagId = dataGridView1.Rows[cnt].Cells[16].Value.ToString();
                     string classification = dataGridView1.Rows[cnt].Cells[17].Value.ToString();
                     string enumeratorName = dataGridView1.Rows[cnt].Cells[18].Value.ToString();
-                    //MessageBox.Show(cap+botname+license+locate);
+                    string lineNumber = dataGridView1.Rows[cnt].Cells[18].Value.ToString();
+                    
                     string notepad_append = "{\"BoatId\":\"" + BoatID + "\"," +
                                             "\"CatchId\":\"" + FishID + "\"," +
                                             "\"Latitude\":\"" + lat + "\"," +
@@ -529,6 +551,7 @@ namespace WindowsFormsApplication1
                                             "\"TagId\":\"" + tagId + "\"," +
                                             "\"Classification\":\"" + classification + "\"," +
                                             "\"EnumeratorName\":\"" + enumeratorName + "\"" +
+                                            "\"EnumeratorName\":\"" + lineNumber + "\"" +
                                             "}+";
 
 
@@ -550,16 +573,12 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region Edit
-        private void btn_edit_Click(object sender, EventArgs e) // ---------------> Edit Button
+        private void btn_edit_Click(object sender, EventArgs e) 
         {
             try
             {
-                //string value = dataGridView1.Rows[dataGridView1.SelectedIndex].Cells[1].Text.ToString();
-                int index = dataGridView1.SelectedRows[0].Index;
-                //MessageBox.Show(index.ToString());
-                //foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                //{
-                //MessageBox.Show(row.ToString());
+                 int index = dataGridView1.SelectedRows[0].Index;
+                 
                 string BoatID = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 string FishID = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 string lat = dataGridView1.Rows[index].Cells[2].Value.ToString();
@@ -579,6 +598,7 @@ namespace WindowsFormsApplication1
                 string tagId = dataGridView1.Rows[index].Cells[16].Value.ToString();
                 string classification = dataGridView1.Rows[index].Cells[17].Value.ToString();
                 string enumeratorName = dataGridView1.Rows[index].Cells[18].Value.ToString();
+                string LineNumber = dataGridView1.Rows[index].Cells[19].Value.ToString();
 
                 global_var1 = BoatID + "&" +
                               FishID + "&" +
@@ -597,17 +617,19 @@ namespace WindowsFormsApplication1
                               supplier + "&" +
                               tagId + "&" +
                               classification + "&" +
-                              enumeratorName;
+                              enumeratorName + "&" +
+                              LineNumber;
                               
                 spliter = "";
                 Form2 f2 = new Form2();
                 Form2.global_var3 = "edit";
+                
                 f2.ShowDialog();
 
                 if (Form2.global_var3 == "edit")
                 {
                     string[] str_data = Form2.global_var2.Split('&');
-                    //dataGridView1.Rows.Clear();
+                    
                     dataGridView1.Rows[index].Cells[0].Value = str_data[0];
                     dataGridView1.Rows[index].Cells[1].Value = str_data[1];
                     dataGridView1.Rows[index].Cells[2].Value = str_data[2];
@@ -627,6 +649,7 @@ namespace WindowsFormsApplication1
                     dataGridView1.Rows[index].Cells[16].Value = str_data[16];
                     dataGridView1.Rows[index].Cells[17].Value = str_data[17];
                     dataGridView1.Rows[index].Cells[18].Value = str_data[18];
+                    dataGridView1.Rows[index].Cells[19].Value = str_data[19];
 
                     Form2.global_var3 = "";
                 }
@@ -812,6 +835,9 @@ namespace WindowsFormsApplication1
             global_var1 = "";
             Form2 f2 = new Form2();
             Form2.global_var3 = "save";
+
+            GenerateLineNumber();
+            
             f2.ShowDialog();
 
             if (Form2.global_var3 == "save")//---------------------------------------------

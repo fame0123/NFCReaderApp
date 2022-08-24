@@ -27,6 +27,7 @@ namespace WindowsFormsApplication1
         public string TagId { get; set; }
         public string Classification { get; set; }
         public string EnumeratorName { get; set; }
+        public int LineNumber { get; set; }
 
     }
 }

@@ -24,6 +24,8 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            lbl_LineNum.Text = MainForm.lineNumber.ToString();
+
             chkBox_saveData.Checked = MainForm.chkbox_saveDataIsChecked;
 
             #region Clear textbox
@@ -63,7 +65,7 @@ namespace WindowsFormsApplication1
 
             string[] str = MainForm.global_var1.Split('&');
 
-            if (str.Length != 18)
+            if (str.Length != 19)
             {
 
                 if (str.Length == 4)
@@ -127,6 +129,7 @@ namespace WindowsFormsApplication1
                 txt_tagId.Text = str[15];
                 txt_classification.Text = str[16];
                 txt_enumerator.Text = str[17];
+                lbl_LineNum.Text = str[18];
 
             }
             
@@ -175,6 +178,7 @@ namespace WindowsFormsApplication1
                 fishRecord.TagId = txt_tagId.Text;
                 fishRecord.Classification = txt_classification.Text;
                 fishRecord.EnumeratorName = txt_enumerator.Text;
+                fishRecord.LineNumber = Convert.ToInt32(lbl_LineNum.Text);
 
                 global_var2 = fishRecord.BoatId + "&" +
                               fishRecord.CatchId + "&" +
@@ -194,7 +198,8 @@ namespace WindowsFormsApplication1
                               fishRecord.Supplier + "&" +
                               fishRecord.TagId + "&" +
                               fishRecord.Classification + "&" +
-                              fishRecord.EnumeratorName;
+                              fishRecord.EnumeratorName + "&" +
+                              fishRecord.LineNumber;
 
                 if (global_var3 == "edit") //
                 {
@@ -264,7 +269,12 @@ namespace WindowsFormsApplication1
 
         private void btn_cancel_Click_1(object sender, EventArgs e)
         {
+            if (global_var3 == "save") //
+            {
+                MainForm.lineNumber -= 1;
+            }
             global_var3 = "cancel";
+
             this.Close();
         }
 

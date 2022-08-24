@@ -75,6 +75,7 @@
             this.txt_enumerator = new System.Windows.Forms.TextBox();
             this.chkBox_rememberEnumerator = new System.Windows.Forms.CheckBox();
             this.chkBox_saveData = new System.Windows.Forms.CheckBox();
+            this.lbl_LineNum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -236,9 +237,9 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(7, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 25);
+            this.label8.Size = new System.Drawing.Size(146, 25);
             this.label8.TabIndex = 8;
-            this.label8.Text = "Fish Record";
+            this.label8.Text = "Fish Record:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txt_boatCap
@@ -639,7 +640,7 @@
             // 
             this.chkBox_saveData.AutoSize = true;
             this.chkBox_saveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBox_saveData.Location = new System.Drawing.Point(728, 16);
+            this.chkBox_saveData.Location = new System.Drawing.Point(670, 16);
             this.chkBox_saveData.Name = "chkBox_saveData";
             this.chkBox_saveData.Size = new System.Drawing.Size(89, 19);
             this.chkBox_saveData.TabIndex = 28;
@@ -647,12 +648,29 @@
             this.chkBox_saveData.UseVisualStyleBackColor = true;
             this.chkBox_saveData.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // lbl_LineNum
+            // 
+            this.lbl_LineNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_LineNum.AutoSize = true;
+            this.lbl_LineNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
+            this.lbl_LineNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LineNum.ForeColor = System.Drawing.Color.White;
+            this.lbl_LineNum.Location = new System.Drawing.Point(152, 0);
+            this.lbl_LineNum.Name = "lbl_LineNum";
+            this.lbl_LineNum.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lbl_LineNum.Size = new System.Drawing.Size(31, 32);
+            this.lbl_LineNum.TabIndex = 29;
+            this.lbl_LineNum.Text = "0";
+            this.lbl_LineNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(833, 308);
+            this.Controls.Add(this.lbl_LineNum);
             this.Controls.Add(this.chkBox_saveData);
             this.Controls.Add(this.chkBox_rememberEnumerator);
             this.Controls.Add(this.label20);
@@ -754,5 +772,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txt_enumerator;
         private System.Windows.Forms.CheckBox chkBox_saveData;
+        private System.Windows.Forms.Label lbl_LineNum;
     }
 }

@@ -51,7 +51,7 @@ namespace WindowsFormsApplication1
                     .Replace(" ", "")
                     .Replace(":", ".");
                 var name = "CatchId-" + fishRecord.CatchId; 
-                var fileName = $"{name}_({time}).json";
+                var fileName = $"{name}_({time})_LN({fishRecord.LineNumber}).json";
 
                 var pathsName = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.Personal));
                 pathsName = Path.Combine(pathsName, "Downloads");
