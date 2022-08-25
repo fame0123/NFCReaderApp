@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
 
             try
             {
-                var date = DateTime.Now.ToString("yyyy-M-d");
+                var date = DateTime.Now.ToString("yyyy-MM-d");
                 var fileName = $"FishRecord_{DateTime.Now.ToString("hh-mm-ss")}.json";
 
                 //var folderPath = $@"C:\Fame_Record\{date}";
@@ -46,7 +46,7 @@ namespace WindowsFormsApplication1
 
             try
             {
-                var date = DateTime.Now.ToString("M-dd-yyyy");
+                var date = DateTime.Now.ToString("yyyy-MM-dd");
                 var time = DateTime.Now.ToString("t")
                     .Replace(" ", "")
                     .Replace(":", ".");

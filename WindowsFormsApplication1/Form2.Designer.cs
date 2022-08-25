@@ -225,6 +225,7 @@
             this.txt_weit.Name = "txt_weit";
             this.txt_weit.Size = new System.Drawing.Size(148, 30);
             this.txt_weit.TabIndex = 5;
+            this.txt_weit.Text = "0";
             this.txt_weit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_weit.TextChanged += new System.EventHandler(this.txt_weit_TextChanged);
             this.txt_weit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_weit_KeyPress);
@@ -381,6 +382,7 @@
             this.cbox_idnum.Name = "cbox_idnum";
             this.cbox_idnum.Size = new System.Drawing.Size(147, 21);
             this.cbox_idnum.TabIndex = 8;
+            this.cbox_idnum.Text = "0";
             this.cbox_idnum.SelectedIndexChanged += new System.EventHandler(this.cbox_idnum_SelectedIndexChanged);
             // 
             // label14
